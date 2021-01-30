@@ -1,6 +1,6 @@
 {
   "name": "villian",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "JS tools for vim-based fools",
   "main": "villian.js",
   "bin": "villian.js",
