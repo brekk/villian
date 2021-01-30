@@ -7,7 +7,7 @@
   "files": [
     "villian.js"
   ],
-  "repository": "github.com/open-sorcerers/villian",
+  "repository": "github.com/brekk/villian",
   "author": "Brekk <brekk@brekkbockrath.com>",
   "license": "ISC",
   "private": false,
