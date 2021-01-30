@@ -1,0 +1,42 @@
+{
+  "name": "villian",
+  "version": "0.0.1",
+  "description": "JS tools for vim-based fools",
+  "main": "villian.js",
+  "bin": "villian.js",
+  "files": [
+    "villian.js"
+  ],
+  "repository": "github.com/open-sorcerers/villian",
+  "author": "Brekk <brekk@brekkbockrath.com>",
+  "license": "ISC",
+  "private": false,
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.12.1",
+    "@babel/plugin-transform-destructuring": "^7.12.1",
+    "@babel/preset-env": "^7.12.11",
+    "@rollup/plugin-alias": "^3.1.2",
+    "@rollup/plugin-babel": "^5.2.3",
+    "@rollup/plugin-commonjs": "^17.1.0",
+    "@rollup/plugin-node-resolve": "^11.1.1",
+    "eslint": "^7.18.0",
+    "eslint-config-sorcerers": "^0.0.5",
+    "nps": "^5.10.0",
+    "prettier": "^2.2.1",
+    "prettier-eslint": "^12.0.0",
+    "rollup": "^2.38.1",
+    "rollup-plugin-add-shebang": "^0.3.1",
+    "strip-color": "^0.1.0"
+  },
+  "scripts": {
+    "start": "nps"
+  },
+  "dependencies": {
+    "envtrace": "^0.0.2",
+    "fluture": "^13.0.1",
+    "kleur": "^4.1.4",
+    "snang": "^0.1.3",
+    "yargs-parser": "^20.2.4"
+  }
+}

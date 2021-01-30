@@ -1,0 +1,1612 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`readSyntax 1`] = `
+Array [
+  "if exists(\\"b:current_syntax\\")",
+  "    finish",
+  "endif",
+  "",
+  "let b:current_syntax = \\"madlib\\"",
+  "",
+  "syntax sync fromstart",
+  "syntax case match",
+  "",
+  "setlocal foldmethod=indent",
+  "setlocal foldignore=",
+  "",
+  "syntax match madIdentifier \\"[_a-z][a-zA-z0-9_']*\\" contained",
+  "",
+  "syntax match madTypeSig",
+  "           \\\\   \\"^\\\\s*\\\\(where\\\\s\\\\+\\\\|let\\\\s\\\\+\\\\|default\\\\s\\\\+\\\\)\\\\?[_a-z][a-zA-Z0-9_']*#\\\\?\\\\(,\\\\s*[_a-z][a-zA-Z0-9_']*#\\\\?\\\\)*\\\\_s\\\\+::\\\\_s\\"",
+  "           \\\\   contains=madWhere,madIdentifier,madOperators,madSeparator,madParens",
+  "",
+  "syntax match   madOperators      \\"[-!#$%&\\\\*\\\\+/<=>\\\\?@\\\\\\\\^|~:.]\\\\+\\\\|\\\\<_\\\\>\\"",
+  "highlight link madOperators      Operator",
+  "",
+  "syntax keyword madData           data ",
+  "           \\\\   nextgroup=madDataIdentifier",
+  "highlight link madData           Keyword",
+  "",
+  "syntax match   madTypeVar        contained /\\\\<\\\\K\\\\k\\\\+/",
+  "           \\\\   skipwhite",
+  "highlight link madTypeVar        Constant",
+  "",
+  "syntax match   madDataIdentifier \\"\\\\<[A-Z][a-zA-Z0-9_']*\\\\>\\" ",
+  "           \\\\   nextgroup=madTypeVar,madOperators,madParens",
+  "highlight link madDataIdentifier TypeDef",
+  "",
+  "syntax keyword madFrom           contained from",
+  "           \\\\   skipwhite skipempty ",
+  "           \\\\   nextgroup=madString",
+  "highlight link madFrom           Keyword",
+  "",
+  "syntax match   madModuleComma    contained /,/",
+  "           \\\\   skipwhite skipempty ",
+  "           \\\\   nextgroup=madModuleKeyword,madModuleAsterisk,madModuleGroup",
+  "highlight link madModuleComma    Noise",
+  "",
+  "syntax match   madModuleAsterisk contained /\\\\*/",
+  "           \\\\   skipwhite skipempty ",
+  "           \\\\   nextgroup=madModuleKeyword,madFrom",
+  "highlight link madModuleAsterisk Special",
+  "",
+  "syntax match   madModuleKeyword  contained /\\\\<\\\\K\\\\k*/",
+  "           \\\\   skipwhite skipempty ",
+  "           \\\\   nextgroup=madFrom,madModuleComma",
+  "highlight link madModuleKeyword  Keyword",
+  "",
+  "syntax keyword madImport         import",
+  "           \\\\   skipwhite skipempty ",
+  "           \\\\   nextgroup=madModuleKeyword,madModuleGroup",
+  "highlight link madImport         Keyword",
+  "",
+  "syntax match   madComment        \\"\\\\v\\\\/\\\\/.*$\\"",
+  "highlight link madComment        Comment",
+  "",
+  "syntax region  madString         start=/\\\\v\\"/ skip=/\\\\\\\\./ end=/\\\\v\\"/",
+  "highlight link madString         String",
+  "",
+  "syntax match   madFunctionCall   /\\\\<\\\\K\\\\k*\\\\ze(/",
+  "highlight link madFunctionCall   Function",
+  "",
+  "syntax region  madModuleGroup    contained start=/{/ end=/}/   ",
+  "           \\\\   skipwhite skipempty",
+  "           \\\\   matchgroup=madModuleBraces",
+  "           \\\\   contains=madModuleKeyword,madModuleComma,madModuleAs,madComment",
+  "           \\\\   nextgroup=madFrom",
+  "           \\\\   fold",
+  "syntax region  madParens         matchgroup=madDelimiter start=\\"(\\" end=\\")\\" ",
+  "           \\\\   contains=TOP,@madTypeSig,@Spell",
+  "syntax region  madBrackets       matchgroup=madDelimiter start=\\"\\\\[\\" end=\\"]\\" ",
+  "           \\\\   contains=TOP,@madTypeSig,@Spell",
+  "syntax region  madBlock          matchgroup=madDelimiter start=\\"{\\" end=\\"}\\" ",
+  "           \\\\   contains=TOP,@Spell",
+  "",
+  "syntax region  madFenceBounded   start='#-' end='-#'",
+  "highlight link madFenceBounded   Todo ",
+  "syntax region  madFenceUnbounded start='^#-' end='-#'",
+  "highlight link madFenceUnbounded Error",
+  " ",
+  "",
+]
+`;
+
+exports[`readSyntax 2`] = `
+Array [
+  "if exists(\\"b:current_syntax\\")",
+  "    finish",
+  "endif",
+  "",
+  "let b:current_syntax = \\"madlib\\"",
+  "",
+  "syntax sync fromstart",
+  "syntax case match",
+  "",
+  "setlocal foldmethod=indent",
+  "setlocal foldignore=",
+  "",
+  "syntax match madIdentifier \\"[_a-z][a-zA-z0-9_']*\\" contained",
+  "",
+  "syntax match madTypeSig \\"^\\\\s*\\\\(where\\\\s\\\\+\\\\|let\\\\s\\\\+\\\\|default\\\\s\\\\+\\\\)\\\\?[_a-z][a-zA-Z0-9_']*#\\\\?\\\\(,\\\\s*[_a-z][a-zA-Z0-9_']*#\\\\?\\\\)*\\\\_s\\\\+::\\\\_s\\" contains=madWhere,madIdentifier,madOperators,madSeparator,madParens",
+  "",
+  "syntax match   madOperators      \\"[-!#$%&\\\\*\\\\+/<=>\\\\?@\\\\\\\\^|~:.]\\\\+\\\\|\\\\<_\\\\>\\"",
+  "highlight link madOperators      Operator",
+  "",
+  "syntax keyword madData           data  nextgroup=madDataIdentifier",
+  "highlight link madData           Keyword",
+  "",
+  "syntax match   madTypeVar        contained /\\\\<\\\\K\\\\k\\\\+/ skipwhite",
+  "highlight link madTypeVar        Constant",
+  "",
+  "syntax match   madDataIdentifier \\"\\\\<[A-Z][a-zA-Z0-9_']*\\\\>\\"  nextgroup=madTypeVar,madOperators,madParens",
+  "highlight link madDataIdentifier TypeDef",
+  "",
+  "syntax keyword madFrom           contained from skipwhite skipempty nextgroup=madString",
+  "highlight link madFrom           Keyword",
+  "",
+  "syntax match   madModuleComma    contained /,/ skipwhite skipempty nextgroup=madModuleKeyword,madModuleAsterisk,madModuleGroup",
+  "highlight link madModuleComma    Noise",
+  "",
+  "syntax match   madModuleAsterisk contained /\\\\*/ skipwhite skipempty nextgroup=madModuleKeyword,madFrom",
+  "highlight link madModuleAsterisk Special",
+  "",
+  "syntax match   madModuleKeyword  contained /\\\\<\\\\K\\\\k*/ skipwhite skipempty nextgroup=madFrom,madModuleComma",
+  "highlight link madModuleKeyword  Keyword",
+  "",
+  "syntax keyword madImport         import skipwhite skipempty nextgroup=madModuleKeyword,madModuleGroup",
+  "highlight link madImport         Keyword",
+  "",
+  "syntax match   madComment        \\"\\\\v\\\\/\\\\/.*$\\"",
+  "highlight link madComment        Comment",
+  "",
+  "syntax region  madString         start=/\\\\v\\"/ skip=/\\\\\\\\./ end=/\\\\v\\"/",
+  "highlight link madString         String",
+  "",
+  "syntax match   madFunctionCall   /\\\\<\\\\K\\\\k*\\\\ze(/",
+  "highlight link madFunctionCall   Function",
+  "",
+  "syntax region  madModuleGroup    contained start=/{/ end=/}/    skipwhite skipempty matchgroup=madModuleBraces contains=madModuleKeyword,madModuleComma,madModuleAs,madComment nextgroup=madFrom fold",
+  "syntax region  madParens         matchgroup=madDelimiter start=\\"(\\" end=\\")\\"  contains=TOP,@madTypeSig,@Spell",
+  "syntax region  madBrackets       matchgroup=madDelimiter start=\\"\\\\[\\" end=\\"]\\"  contains=TOP,@madTypeSig,@Spell",
+  "syntax region  madBlock          matchgroup=madDelimiter start=\\"{\\" end=\\"}\\"  contains=TOP,@Spell",
+  "",
+  "syntax region  madFenceBounded   start='#-' end='-#'",
+  "highlight link madFenceBounded   Todo ",
+  "syntax region  madFenceUnbounded start='^#-' end='-#'",
+  "highlight link madFenceUnbounded Error",
+  " ",
+  "",
+]
+`;
+
+exports[`readSyntax 3`] = `
+Array [
+  "syntax sync fromstart",
+  "syntax case match",
+  "syntax match madIdentifier \\"[_a-z][a-zA-z0-9_']*\\" contained",
+  "syntax match madTypeSig \\"^\\\\s*\\\\(where\\\\s\\\\+\\\\|let\\\\s\\\\+\\\\|default\\\\s\\\\+\\\\)\\\\?[_a-z][a-zA-Z0-9_']*#\\\\?\\\\(,\\\\s*[_a-z][a-zA-Z0-9_']*#\\\\?\\\\)*\\\\_s\\\\+::\\\\_s\\" contains=madWhere,madIdentifier,madOperators,madSeparator,madParens",
+  "syntax match   madOperators      \\"[-!#$%&\\\\*\\\\+/<=>\\\\?@\\\\\\\\^|~:.]\\\\+\\\\|\\\\<_\\\\>\\"",
+  "syntax keyword madData           data  nextgroup=madDataIdentifier",
+  "syntax match   madTypeVar        contained /\\\\<\\\\K\\\\k\\\\+/ skipwhite",
+  "syntax match   madDataIdentifier \\"\\\\<[A-Z][a-zA-Z0-9_']*\\\\>\\"  nextgroup=madTypeVar,madOperators,madParens",
+  "syntax keyword madFrom           contained from skipwhite skipempty nextgroup=madString",
+  "syntax match   madModuleComma    contained /,/ skipwhite skipempty nextgroup=madModuleKeyword,madModuleAsterisk,madModuleGroup",
+  "syntax match   madModuleAsterisk contained /\\\\*/ skipwhite skipempty nextgroup=madModuleKeyword,madFrom",
+  "syntax match   madModuleKeyword  contained /\\\\<\\\\K\\\\k*/ skipwhite skipempty nextgroup=madFrom,madModuleComma",
+  "syntax keyword madImport         import skipwhite skipempty nextgroup=madModuleKeyword,madModuleGroup",
+  "syntax match   madComment        \\"\\\\v\\\\/\\\\/.*$\\"",
+  "syntax region  madString         start=/\\\\v\\"/ skip=/\\\\\\\\./ end=/\\\\v\\"/",
+  "syntax match   madFunctionCall   /\\\\<\\\\K\\\\k*\\\\ze(/",
+  "syntax region  madModuleGroup    contained start=/{/ end=/}/    skipwhite skipempty matchgroup=madModuleBraces contains=madModuleKeyword,madModuleComma,madModuleAs,madComment nextgroup=madFrom fold",
+  "syntax region  madParens         matchgroup=madDelimiter start=\\"(\\" end=\\")\\"  contains=TOP,@madTypeSig,@Spell",
+  "syntax region  madBrackets       matchgroup=madDelimiter start=\\"\\\\[\\" end=\\"]\\"  contains=TOP,@madTypeSig,@Spell",
+  "syntax region  madBlock          matchgroup=madDelimiter start=\\"{\\" end=\\"}\\"  contains=TOP,@Spell",
+  "syntax region  madFenceBounded   start='#-' end='-#'",
+  "syntax region  madFenceUnbounded start='^#-' end='-#'",
+]
+`;
+
+exports[`readSyntax 4`] = `
+Array [
+  "syntax match madIdentifier \\"[_a-z][a-zA-z0-9_']*\\" contained",
+  "syntax match madTypeSig \\"^\\\\s*\\\\(where\\\\s\\\\+\\\\|let\\\\s\\\\+\\\\|default\\\\s\\\\+\\\\)\\\\?[_a-z][a-zA-Z0-9_']*#\\\\?\\\\(,\\\\s*[_a-z][a-zA-Z0-9_']*#\\\\?\\\\)*\\\\_s\\\\+::\\\\_s\\" contains=madWhere,madIdentifier,madOperators,madSeparator,madParens",
+  "syntax match   madOperators      \\"[-!#$%&\\\\*\\\\+/<=>\\\\?@\\\\\\\\^|~:.]\\\\+\\\\|\\\\<_\\\\>\\"",
+  "syntax keyword madData           data  nextgroup=madDataIdentifier",
+  "syntax match   madTypeVar        contained /\\\\<\\\\K\\\\k\\\\+/ skipwhite",
+  "syntax match   madDataIdentifier \\"\\\\<[A-Z][a-zA-Z0-9_']*\\\\>\\"  nextgroup=madTypeVar,madOperators,madParens",
+  "syntax keyword madFrom           contained from skipwhite skipempty nextgroup=madString",
+  "syntax match   madModuleComma    contained /,/ skipwhite skipempty nextgroup=madModuleKeyword,madModuleAsterisk,madModuleGroup",
+  "syntax match   madModuleAsterisk contained /\\\\*/ skipwhite skipempty nextgroup=madModuleKeyword,madFrom",
+  "syntax match   madModuleKeyword  contained /\\\\<\\\\K\\\\k*/ skipwhite skipempty nextgroup=madFrom,madModuleComma",
+  "syntax keyword madImport         import skipwhite skipempty nextgroup=madModuleKeyword,madModuleGroup",
+  "syntax match   madComment        \\"\\\\v\\\\/\\\\/.*$\\"",
+  "syntax region  madString         start=/\\\\v\\"/ skip=/\\\\\\\\./ end=/\\\\v\\"/",
+  "syntax match   madFunctionCall   /\\\\<\\\\K\\\\k*\\\\ze(/",
+  "syntax region  madModuleGroup    contained start=/{/ end=/}/    skipwhite skipempty matchgroup=madModuleBraces contains=madModuleKeyword,madModuleComma,madModuleAs,madComment nextgroup=madFrom fold",
+  "syntax region  madParens         matchgroup=madDelimiter start=\\"(\\" end=\\")\\"  contains=TOP,@madTypeSig,@Spell",
+  "syntax region  madBrackets       matchgroup=madDelimiter start=\\"\\\\[\\" end=\\"]\\"  contains=TOP,@madTypeSig,@Spell",
+  "syntax region  madBlock          matchgroup=madDelimiter start=\\"{\\" end=\\"}\\"  contains=TOP,@Spell",
+  "syntax region  madFenceBounded   start='#-' end='-#'",
+  "syntax region  madFenceUnbounded start='^#-' end='-#'",
+]
+`;
+
+exports[`readSyntax 5`] = `
+Array [
+  Object {
+    "data": Object {
+      "\\"[_a-z][a-zA-z0-9_']*\\"": true,
+      "contained": true,
+    },
+    "kind": "match",
+    "name": "madIdentifier",
+    "raw": Array [
+      "\\"[_a-z][a-zA-z0-9_']*\\"",
+      "contained",
+    ],
+  },
+  Object {
+    "data": Object {
+      "contains": Array [
+        "madWhere",
+        "madIdentifier",
+        "madOperators",
+        "madSeparator",
+        "madParens",
+      ],
+      "pattern": "\\"^\\\\s*\\\\(where\\\\s\\\\+\\\\|let\\\\s\\\\+\\\\|default\\\\s\\\\+\\\\)\\\\?[_a-z][a-zA-Z0-9_']*#\\\\?\\\\(,\\\\s*[_a-z][a-zA-Z0-9_']*#\\\\?\\\\)*\\\\_s\\\\+::\\\\_s\\"",
+    },
+    "kind": "match",
+    "name": "madTypeSig",
+    "raw": Array [
+      "\\"^\\\\s*\\\\(where\\\\s\\\\+\\\\|let\\\\s\\\\+\\\\|default\\\\s\\\\+\\\\)\\\\?[_a-z][a-zA-Z0-9_']*#\\\\?\\\\(,\\\\s*[_a-z][a-zA-Z0-9_']*#\\\\?\\\\)*\\\\_s\\\\+::\\\\_s\\"",
+      "contains=madWhere,madIdentifier,madOperators,madSeparator,madParens",
+    ],
+  },
+  Object {
+    "data": Object {
+      "\\"[-!#$%&\\\\*\\\\+/<": ">\\\\?@\\\\\\\\^|~:.]\\\\+\\\\|\\\\<_\\\\>\\"",
+    },
+    "kind": "match",
+    "name": "madOperators",
+    "raw": Array [
+      "\\"[-!#$%&\\\\*\\\\+/<=>\\\\?@\\\\\\\\^|~:.]\\\\+\\\\|\\\\<_\\\\>\\"",
+    ],
+  },
+  Object {
+    "data": Object {
+      "data": true,
+      "nextgroup": "madDataIdentifier",
+    },
+    "kind": "keyword",
+    "name": "madData",
+    "raw": Array [
+      "data",
+      "nextgroup=madDataIdentifier",
+    ],
+  },
+  Object {
+    "data": Object {
+      "contained": true,
+      "pattern": "/\\\\<\\\\K\\\\k\\\\+/",
+      "skipwhite": true,
+    },
+    "kind": "match",
+    "name": "madTypeVar",
+    "raw": Array [
+      "contained",
+      "/\\\\<\\\\K\\\\k\\\\+/",
+      "skipwhite",
+    ],
+  },
+  Object {
+    "data": Object {
+      "nextgroup": Array [
+        "madTypeVar",
+        "madOperators",
+        "madParens",
+      ],
+      "pattern": "\\"\\\\<[A-Z][a-zA-Z0-9_']*\\\\>\\"",
+    },
+    "kind": "match",
+    "name": "madDataIdentifier",
+    "raw": Array [
+      "\\"\\\\<[A-Z][a-zA-Z0-9_']*\\\\>\\"",
+      "nextgroup=madTypeVar,madOperators,madParens",
+    ],
+  },
+  Object {
+    "data": Object {
+      "contained": true,
+      "from": true,
+      "nextgroup": "madString",
+      "skipempty": true,
+      "skipwhite": true,
+    },
+    "kind": "keyword",
+    "name": "madFrom",
+    "raw": Array [
+      "contained",
+      "from",
+      "skipwhite",
+      "skipempty",
+      "nextgroup=madString",
+    ],
+  },
+  Object {
+    "data": Object {
+      "contained": true,
+      "nextgroup": Array [
+        "madModuleKeyword",
+        "madModuleAsterisk",
+        "madModuleGroup",
+      ],
+      "pattern": "/,/",
+      "skipempty": true,
+      "skipwhite": true,
+    },
+    "kind": "match",
+    "name": "madModuleComma",
+    "raw": Array [
+      "contained",
+      "/,/",
+      "skipwhite",
+      "skipempty",
+      "nextgroup=madModuleKeyword,madModuleAsterisk,madModuleGroup",
+    ],
+  },
+  Object {
+    "data": Object {
+      "contained": true,
+      "nextgroup": Array [
+        "madModuleKeyword",
+        "madFrom",
+      ],
+      "pattern": "/\\\\*/",
+      "skipempty": true,
+      "skipwhite": true,
+    },
+    "kind": "match",
+    "name": "madModuleAsterisk",
+    "raw": Array [
+      "contained",
+      "/\\\\*/",
+      "skipwhite",
+      "skipempty",
+      "nextgroup=madModuleKeyword,madFrom",
+    ],
+  },
+  Object {
+    "data": Object {
+      "contained": true,
+      "nextgroup": Array [
+        "madFrom",
+        "madModuleComma",
+      ],
+      "pattern": "/\\\\<\\\\K\\\\k*/",
+      "skipempty": true,
+      "skipwhite": true,
+    },
+    "kind": "match",
+    "name": "madModuleKeyword",
+    "raw": Array [
+      "contained",
+      "/\\\\<\\\\K\\\\k*/",
+      "skipwhite",
+      "skipempty",
+      "nextgroup=madFrom,madModuleComma",
+    ],
+  },
+  Object {
+    "data": Object {
+      "import": true,
+      "nextgroup": Array [
+        "madModuleKeyword",
+        "madModuleGroup",
+      ],
+      "skipempty": true,
+      "skipwhite": true,
+    },
+    "kind": "keyword",
+    "name": "madImport",
+    "raw": Array [
+      "import",
+      "skipwhite",
+      "skipempty",
+      "nextgroup=madModuleKeyword,madModuleGroup",
+    ],
+  },
+  Object {
+    "data": Object {
+      "pattern": "\\"\\\\v\\\\/\\\\/.*$\\"",
+    },
+    "kind": "match",
+    "name": "madComment",
+    "raw": Array [
+      "\\"\\\\v\\\\/\\\\/.*$\\"",
+    ],
+  },
+  Object {
+    "data": Object {
+      "end": "/\\\\v\\"/",
+      "skip": "/\\\\\\\\./",
+      "start": "/\\\\v\\"/",
+    },
+    "kind": "region",
+    "name": "madString",
+    "raw": Array [
+      "start=/\\\\v\\"/",
+      "skip=/\\\\\\\\./",
+      "end=/\\\\v\\"/",
+    ],
+  },
+  Object {
+    "data": Object {
+      "pattern": "/\\\\<\\\\K\\\\k*\\\\ze(/",
+    },
+    "kind": "match",
+    "name": "madFunctionCall",
+    "raw": Array [
+      "/\\\\<\\\\K\\\\k*\\\\ze(/",
+    ],
+  },
+  Object {
+    "data": Object {
+      "contained": true,
+      "contains": Array [
+        "madModuleKeyword",
+        "madModuleComma",
+        "madModuleAs",
+        "madComment",
+      ],
+      "end": "/}/",
+      "fold": true,
+      "matchgroup": "madModuleBraces",
+      "nextgroup": "madFrom",
+      "skipempty": true,
+      "skipwhite": true,
+      "start": "/{/",
+    },
+    "kind": "region",
+    "name": "madModuleGroup",
+    "raw": Array [
+      "contained",
+      "start=/{/",
+      "end=/}/",
+      "skipwhite",
+      "skipempty",
+      "matchgroup=madModuleBraces",
+      "contains=madModuleKeyword,madModuleComma,madModuleAs,madComment",
+      "nextgroup=madFrom",
+      "fold",
+    ],
+  },
+  Object {
+    "data": Object {
+      "contains": Array [
+        "TOP",
+        "@madTypeSig",
+        "@Spell",
+      ],
+      "end": "\\")\\"",
+      "matchgroup": "madDelimiter",
+      "start": "\\"(\\"",
+    },
+    "kind": "region",
+    "name": "madParens",
+    "raw": Array [
+      "matchgroup=madDelimiter",
+      "start=\\"(\\"",
+      "end=\\")\\"",
+      "contains=TOP,@madTypeSig,@Spell",
+    ],
+  },
+  Object {
+    "data": Object {
+      "contains": Array [
+        "TOP",
+        "@madTypeSig",
+        "@Spell",
+      ],
+      "end": "\\"]\\"",
+      "matchgroup": "madDelimiter",
+      "start": "\\"\\\\[\\"",
+    },
+    "kind": "region",
+    "name": "madBrackets",
+    "raw": Array [
+      "matchgroup=madDelimiter",
+      "start=\\"\\\\[\\"",
+      "end=\\"]\\"",
+      "contains=TOP,@madTypeSig,@Spell",
+    ],
+  },
+  Object {
+    "data": Object {
+      "contains": Array [
+        "TOP",
+        "@Spell",
+      ],
+      "end": "\\"}\\"",
+      "matchgroup": "madDelimiter",
+      "start": "\\"{\\"",
+    },
+    "kind": "region",
+    "name": "madBlock",
+    "raw": Array [
+      "matchgroup=madDelimiter",
+      "start=\\"{\\"",
+      "end=\\"}\\"",
+      "contains=TOP,@Spell",
+    ],
+  },
+  Object {
+    "data": Object {
+      "end": "'-#'",
+      "start": "'#-'",
+    },
+    "kind": "region",
+    "name": "madFenceBounded",
+    "raw": Array [
+      "start='#-'",
+      "end='-#'",
+    ],
+  },
+  Object {
+    "data": Object {
+      "end": "'-#'",
+      "start": "'^#-'",
+    },
+    "kind": "region",
+    "name": "madFenceUnbounded",
+    "raw": Array [
+      "start='^#-'",
+      "end='-#'",
+    ],
+  },
+]
+`;
+
+exports[`readSyntax 6`] = `
+Array [
+  Object {
+    "data": Object {
+      "\\"[_a-z][a-zA-z0-9_']*\\"": true,
+      "contained": true,
+    },
+    "kind": "match",
+    "name": "madIdentifier",
+    "raw": Array [
+      "\\"[_a-z][a-zA-z0-9_']*\\"",
+      "contained",
+    ],
+  },
+  Object {
+    "data": Object {
+      "contains": Array [
+        "madWhere",
+        "madIdentifier",
+        "madOperators",
+        "madSeparator",
+        "madParens",
+      ],
+      "pattern": "\\"^\\\\s*\\\\(where\\\\s\\\\+\\\\|let\\\\s\\\\+\\\\|default\\\\s\\\\+\\\\)\\\\?[_a-z][a-zA-Z0-9_']*#\\\\?\\\\(,\\\\s*[_a-z][a-zA-Z0-9_']*#\\\\?\\\\)*\\\\_s\\\\+::\\\\_s\\"",
+    },
+    "kind": "match",
+    "name": "madTypeSig",
+    "raw": Array [
+      "\\"^\\\\s*\\\\(where\\\\s\\\\+\\\\|let\\\\s\\\\+\\\\|default\\\\s\\\\+\\\\)\\\\?[_a-z][a-zA-Z0-9_']*#\\\\?\\\\(,\\\\s*[_a-z][a-zA-Z0-9_']*#\\\\?\\\\)*\\\\_s\\\\+::\\\\_s\\"",
+      "contains=madWhere,madIdentifier,madOperators,madSeparator,madParens",
+    ],
+  },
+  Object {
+    "data": Object {
+      "\\"[-!#$%&\\\\*\\\\+/<": ">\\\\?@\\\\\\\\^|~:.]\\\\+\\\\|\\\\<_\\\\>\\"",
+    },
+    "kind": "match",
+    "name": "madOperators",
+    "raw": Array [
+      "\\"[-!#$%&\\\\*\\\\+/<=>\\\\?@\\\\\\\\^|~:.]\\\\+\\\\|\\\\<_\\\\>\\"",
+    ],
+  },
+  Object {
+    "data": Object {
+      "data": true,
+      "nextgroup": "madDataIdentifier",
+    },
+    "kind": "keyword",
+    "name": "madData",
+    "raw": Array [
+      "data",
+      "nextgroup=madDataIdentifier",
+    ],
+  },
+  Object {
+    "data": Object {
+      "contained": true,
+      "pattern": "/\\\\<\\\\K\\\\k\\\\+/",
+      "skipwhite": true,
+    },
+    "kind": "match",
+    "name": "madTypeVar",
+    "raw": Array [
+      "contained",
+      "/\\\\<\\\\K\\\\k\\\\+/",
+      "skipwhite",
+    ],
+  },
+  Object {
+    "data": Object {
+      "nextgroup": Array [
+        "madTypeVar",
+        "madOperators",
+        "madParens",
+      ],
+      "pattern": "\\"\\\\<[A-Z][a-zA-Z0-9_']*\\\\>\\"",
+    },
+    "kind": "match",
+    "name": "madDataIdentifier",
+    "raw": Array [
+      "\\"\\\\<[A-Z][a-zA-Z0-9_']*\\\\>\\"",
+      "nextgroup=madTypeVar,madOperators,madParens",
+    ],
+  },
+  Object {
+    "data": Object {
+      "contained": true,
+      "from": true,
+      "nextgroup": "madString",
+      "skipempty": true,
+      "skipwhite": true,
+    },
+    "kind": "keyword",
+    "name": "madFrom",
+    "raw": Array [
+      "contained",
+      "from",
+      "skipwhite",
+      "skipempty",
+      "nextgroup=madString",
+    ],
+  },
+  Object {
+    "data": Object {
+      "contained": true,
+      "nextgroup": Array [
+        "madModuleKeyword",
+        "madModuleAsterisk",
+        "madModuleGroup",
+      ],
+      "pattern": "/,/",
+      "skipempty": true,
+      "skipwhite": true,
+    },
+    "kind": "match",
+    "name": "madModuleComma",
+    "raw": Array [
+      "contained",
+      "/,/",
+      "skipwhite",
+      "skipempty",
+      "nextgroup=madModuleKeyword,madModuleAsterisk,madModuleGroup",
+    ],
+  },
+  Object {
+    "data": Object {
+      "contained": true,
+      "nextgroup": Array [
+        "madModuleKeyword",
+        "madFrom",
+      ],
+      "pattern": "/\\\\*/",
+      "skipempty": true,
+      "skipwhite": true,
+    },
+    "kind": "match",
+    "name": "madModuleAsterisk",
+    "raw": Array [
+      "contained",
+      "/\\\\*/",
+      "skipwhite",
+      "skipempty",
+      "nextgroup=madModuleKeyword,madFrom",
+    ],
+  },
+  Object {
+    "data": Object {
+      "contained": true,
+      "nextgroup": Array [
+        "madFrom",
+        "madModuleComma",
+      ],
+      "pattern": "/\\\\<\\\\K\\\\k*/",
+      "skipempty": true,
+      "skipwhite": true,
+    },
+    "kind": "match",
+    "name": "madModuleKeyword",
+    "raw": Array [
+      "contained",
+      "/\\\\<\\\\K\\\\k*/",
+      "skipwhite",
+      "skipempty",
+      "nextgroup=madFrom,madModuleComma",
+    ],
+  },
+  Object {
+    "data": Object {
+      "import": true,
+      "nextgroup": Array [
+        "madModuleKeyword",
+        "madModuleGroup",
+      ],
+      "skipempty": true,
+      "skipwhite": true,
+    },
+    "kind": "keyword",
+    "name": "madImport",
+    "raw": Array [
+      "import",
+      "skipwhite",
+      "skipempty",
+      "nextgroup=madModuleKeyword,madModuleGroup",
+    ],
+  },
+  Object {
+    "data": Object {
+      "pattern": "\\"\\\\v\\\\/\\\\/.*$\\"",
+    },
+    "kind": "match",
+    "name": "madComment",
+    "raw": Array [
+      "\\"\\\\v\\\\/\\\\/.*$\\"",
+    ],
+  },
+  Object {
+    "data": Object {
+      "end": "/\\\\v\\"/",
+      "skip": "/\\\\\\\\./",
+      "start": "/\\\\v\\"/",
+    },
+    "kind": "region",
+    "name": "madString",
+    "raw": Array [
+      "start=/\\\\v\\"/",
+      "skip=/\\\\\\\\./",
+      "end=/\\\\v\\"/",
+    ],
+  },
+  Object {
+    "data": Object {
+      "pattern": "/\\\\<\\\\K\\\\k*\\\\ze(/",
+    },
+    "kind": "match",
+    "name": "madFunctionCall",
+    "raw": Array [
+      "/\\\\<\\\\K\\\\k*\\\\ze(/",
+    ],
+  },
+  Object {
+    "data": Object {
+      "contained": true,
+      "contains": Array [
+        "madModuleKeyword",
+        "madModuleComma",
+        "madModuleAs",
+        "madComment",
+      ],
+      "end": "/}/",
+      "fold": true,
+      "matchgroup": "madModuleBraces",
+      "nextgroup": "madFrom",
+      "skipempty": true,
+      "skipwhite": true,
+      "start": "/{/",
+    },
+    "kind": "region",
+    "name": "madModuleGroup",
+    "raw": Array [
+      "contained",
+      "start=/{/",
+      "end=/}/",
+      "skipwhite",
+      "skipempty",
+      "matchgroup=madModuleBraces",
+      "contains=madModuleKeyword,madModuleComma,madModuleAs,madComment",
+      "nextgroup=madFrom",
+      "fold",
+    ],
+  },
+  Object {
+    "data": Object {
+      "contains": Array [
+        "TOP",
+        "@madTypeSig",
+        "@Spell",
+      ],
+      "end": "\\")\\"",
+      "matchgroup": "madDelimiter",
+      "start": "\\"(\\"",
+    },
+    "kind": "region",
+    "name": "madParens",
+    "raw": Array [
+      "matchgroup=madDelimiter",
+      "start=\\"(\\"",
+      "end=\\")\\"",
+      "contains=TOP,@madTypeSig,@Spell",
+    ],
+  },
+  Object {
+    "data": Object {
+      "contains": Array [
+        "TOP",
+        "@madTypeSig",
+        "@Spell",
+      ],
+      "end": "\\"]\\"",
+      "matchgroup": "madDelimiter",
+      "start": "\\"\\\\[\\"",
+    },
+    "kind": "region",
+    "name": "madBrackets",
+    "raw": Array [
+      "matchgroup=madDelimiter",
+      "start=\\"\\\\[\\"",
+      "end=\\"]\\"",
+      "contains=TOP,@madTypeSig,@Spell",
+    ],
+  },
+  Object {
+    "data": Object {
+      "contains": Array [
+        "TOP",
+        "@Spell",
+      ],
+      "end": "\\"}\\"",
+      "matchgroup": "madDelimiter",
+      "start": "\\"{\\"",
+    },
+    "kind": "region",
+    "name": "madBlock",
+    "raw": Array [
+      "matchgroup=madDelimiter",
+      "start=\\"{\\"",
+      "end=\\"}\\"",
+      "contains=TOP,@Spell",
+    ],
+  },
+  Object {
+    "data": Object {
+      "end": "'-#'",
+      "start": "'#-'",
+    },
+    "kind": "region",
+    "name": "madFenceBounded",
+    "raw": Array [
+      "start='#-'",
+      "end='-#'",
+    ],
+  },
+  Object {
+    "data": Object {
+      "end": "'-#'",
+      "start": "'^#-'",
+    },
+    "kind": "region",
+    "name": "madFenceUnbounded",
+    "raw": Array [
+      "start='^#-'",
+      "end='-#'",
+    ],
+  },
+]
+`;
+
+exports[`villianWithOptions 1`] = `
+"{
+  \\"entities\\": [
+    \\"madIdentifier\\",
+    \\"madTypeSig\\",
+    \\"madOperators\\",
+    \\"madData\\",
+    \\"madTypeVar\\",
+    \\"madDataIdentifier\\",
+    \\"madFrom\\",
+    \\"madModuleComma\\",
+    \\"madModuleAsterisk\\",
+    \\"madModuleKeyword\\",
+    \\"madImport\\",
+    \\"madComment\\",
+    \\"madString\\",
+    \\"madFunctionCall\\",
+    \\"madModuleGroup\\",
+    \\"madModuleBraces\\",
+    \\"madParens\\",
+    \\"madDelimiter\\",
+    \\"madBrackets\\",
+    \\"madBlock\\",
+    \\"madFenceBounded\\",
+    \\"madFenceUnbounded\\"
+  ],
+  \\"syntaxes\\": [
+    {
+      \\"kind\\": \\"match\\",
+      \\"name\\": \\"madIdentifier\\",
+      \\"raw\\": [
+        \\"\\\\\\"[_a-z][a-zA-z0-9_']*\\\\\\"\\",
+        \\"contained\\"
+      ],
+      \\"data\\": {
+        \\"\\\\\\"[_a-z][a-zA-z0-9_']*\\\\\\"\\": true,
+        \\"contained\\": true
+      }
+    },
+    {
+      \\"kind\\": \\"match\\",
+      \\"name\\": \\"madTypeSig\\",
+      \\"raw\\": [
+        \\"\\\\\\"^\\\\\\\\s*\\\\\\\\(where\\\\\\\\s\\\\\\\\+\\\\\\\\|let\\\\\\\\s\\\\\\\\+\\\\\\\\|default\\\\\\\\s\\\\\\\\+\\\\\\\\)\\\\\\\\?[_a-z][a-zA-Z0-9_']*#\\\\\\\\?\\\\\\\\(,\\\\\\\\s*[_a-z][a-zA-Z0-9_']*#\\\\\\\\?\\\\\\\\)*\\\\\\\\_s\\\\\\\\+::\\\\\\\\_s\\\\\\"\\",
+        \\"contains=madWhere,madIdentifier,madOperators,madSeparator,madParens\\"
+      ],
+      \\"data\\": {
+        \\"pattern\\": \\"\\\\\\"^\\\\\\\\s*\\\\\\\\(where\\\\\\\\s\\\\\\\\+\\\\\\\\|let\\\\\\\\s\\\\\\\\+\\\\\\\\|default\\\\\\\\s\\\\\\\\+\\\\\\\\)\\\\\\\\?[_a-z][a-zA-Z0-9_']*#\\\\\\\\?\\\\\\\\(,\\\\\\\\s*[_a-z][a-zA-Z0-9_']*#\\\\\\\\?\\\\\\\\)*\\\\\\\\_s\\\\\\\\+::\\\\\\\\_s\\\\\\"\\",
+        \\"contains\\": [
+          \\"madWhere\\",
+          \\"madIdentifier\\",
+          \\"madOperators\\",
+          \\"madSeparator\\",
+          \\"madParens\\"
+        ]
+      }
+    },
+    {
+      \\"kind\\": \\"match\\",
+      \\"name\\": \\"madOperators\\",
+      \\"raw\\": [
+        \\"\\\\\\"[-!#$%&\\\\\\\\*\\\\\\\\+/<=>\\\\\\\\?@\\\\\\\\\\\\\\\\^|~:.]\\\\\\\\+\\\\\\\\|\\\\\\\\<_\\\\\\\\>\\\\\\"\\"
+      ],
+      \\"data\\": {
+        \\"\\\\\\"[-!#$%&\\\\\\\\*\\\\\\\\+/<\\": \\">\\\\\\\\?@\\\\\\\\\\\\\\\\^|~:.]\\\\\\\\+\\\\\\\\|\\\\\\\\<_\\\\\\\\>\\\\\\"\\"
+      }
+    },
+    {
+      \\"kind\\": \\"keyword\\",
+      \\"name\\": \\"madData\\",
+      \\"raw\\": [
+        \\"data\\",
+        \\"nextgroup=madDataIdentifier\\"
+      ],
+      \\"data\\": {
+        \\"data\\": true,
+        \\"nextgroup\\": \\"madDataIdentifier\\"
+      }
+    },
+    {
+      \\"kind\\": \\"match\\",
+      \\"name\\": \\"madTypeVar\\",
+      \\"raw\\": [
+        \\"contained\\",
+        \\"/\\\\\\\\<\\\\\\\\K\\\\\\\\k\\\\\\\\+/\\",
+        \\"skipwhite\\"
+      ],
+      \\"data\\": {
+        \\"contained\\": true,
+        \\"pattern\\": \\"/\\\\\\\\<\\\\\\\\K\\\\\\\\k\\\\\\\\+/\\",
+        \\"skipwhite\\": true
+      }
+    },
+    {
+      \\"kind\\": \\"match\\",
+      \\"name\\": \\"madDataIdentifier\\",
+      \\"raw\\": [
+        \\"\\\\\\"\\\\\\\\<[A-Z][a-zA-Z0-9_']*\\\\\\\\>\\\\\\"\\",
+        \\"nextgroup=madTypeVar,madOperators,madParens\\"
+      ],
+      \\"data\\": {
+        \\"pattern\\": \\"\\\\\\"\\\\\\\\<[A-Z][a-zA-Z0-9_']*\\\\\\\\>\\\\\\"\\",
+        \\"nextgroup\\": [
+          \\"madTypeVar\\",
+          \\"madOperators\\",
+          \\"madParens\\"
+        ]
+      }
+    },
+    {
+      \\"kind\\": \\"keyword\\",
+      \\"name\\": \\"madFrom\\",
+      \\"raw\\": [
+        \\"contained\\",
+        \\"from\\",
+        \\"skipwhite\\",
+        \\"skipempty\\",
+        \\"nextgroup=madString\\"
+      ],
+      \\"data\\": {
+        \\"contained\\": true,
+        \\"from\\": true,
+        \\"skipwhite\\": true,
+        \\"skipempty\\": true,
+        \\"nextgroup\\": \\"madString\\"
+      }
+    },
+    {
+      \\"kind\\": \\"match\\",
+      \\"name\\": \\"madModuleComma\\",
+      \\"raw\\": [
+        \\"contained\\",
+        \\"/,/\\",
+        \\"skipwhite\\",
+        \\"skipempty\\",
+        \\"nextgroup=madModuleKeyword,madModuleAsterisk,madModuleGroup\\"
+      ],
+      \\"data\\": {
+        \\"contained\\": true,
+        \\"pattern\\": \\"/,/\\",
+        \\"skipwhite\\": true,
+        \\"skipempty\\": true,
+        \\"nextgroup\\": [
+          \\"madModuleKeyword\\",
+          \\"madModuleAsterisk\\",
+          \\"madModuleGroup\\"
+        ]
+      }
+    },
+    {
+      \\"kind\\": \\"match\\",
+      \\"name\\": \\"madModuleAsterisk\\",
+      \\"raw\\": [
+        \\"contained\\",
+        \\"/\\\\\\\\*/\\",
+        \\"skipwhite\\",
+        \\"skipempty\\",
+        \\"nextgroup=madModuleKeyword,madFrom\\"
+      ],
+      \\"data\\": {
+        \\"contained\\": true,
+        \\"pattern\\": \\"/\\\\\\\\*/\\",
+        \\"skipwhite\\": true,
+        \\"skipempty\\": true,
+        \\"nextgroup\\": [
+          \\"madModuleKeyword\\",
+          \\"madFrom\\"
+        ]
+      }
+    },
+    {
+      \\"kind\\": \\"match\\",
+      \\"name\\": \\"madModuleKeyword\\",
+      \\"raw\\": [
+        \\"contained\\",
+        \\"/\\\\\\\\<\\\\\\\\K\\\\\\\\k*/\\",
+        \\"skipwhite\\",
+        \\"skipempty\\",
+        \\"nextgroup=madFrom,madModuleComma\\"
+      ],
+      \\"data\\": {
+        \\"contained\\": true,
+        \\"pattern\\": \\"/\\\\\\\\<\\\\\\\\K\\\\\\\\k*/\\",
+        \\"skipwhite\\": true,
+        \\"skipempty\\": true,
+        \\"nextgroup\\": [
+          \\"madFrom\\",
+          \\"madModuleComma\\"
+        ]
+      }
+    },
+    {
+      \\"kind\\": \\"keyword\\",
+      \\"name\\": \\"madImport\\",
+      \\"raw\\": [
+        \\"import\\",
+        \\"skipwhite\\",
+        \\"skipempty\\",
+        \\"nextgroup=madModuleKeyword,madModuleGroup\\"
+      ],
+      \\"data\\": {
+        \\"import\\": true,
+        \\"skipwhite\\": true,
+        \\"skipempty\\": true,
+        \\"nextgroup\\": [
+          \\"madModuleKeyword\\",
+          \\"madModuleGroup\\"
+        ]
+      }
+    },
+    {
+      \\"kind\\": \\"match\\",
+      \\"name\\": \\"madComment\\",
+      \\"raw\\": [
+        \\"\\\\\\"\\\\\\\\v\\\\\\\\/\\\\\\\\/.*$\\\\\\"\\"
+      ],
+      \\"data\\": {
+        \\"pattern\\": \\"\\\\\\"\\\\\\\\v\\\\\\\\/\\\\\\\\/.*$\\\\\\"\\"
+      }
+    },
+    {
+      \\"kind\\": \\"region\\",
+      \\"name\\": \\"madString\\",
+      \\"raw\\": [
+        \\"start=/\\\\\\\\v\\\\\\"/\\",
+        \\"skip=/\\\\\\\\\\\\\\\\./\\",
+        \\"end=/\\\\\\\\v\\\\\\"/\\"
+      ],
+      \\"data\\": {
+        \\"start\\": \\"/\\\\\\\\v\\\\\\"/\\",
+        \\"skip\\": \\"/\\\\\\\\\\\\\\\\./\\",
+        \\"end\\": \\"/\\\\\\\\v\\\\\\"/\\"
+      }
+    },
+    {
+      \\"kind\\": \\"match\\",
+      \\"name\\": \\"madFunctionCall\\",
+      \\"raw\\": [
+        \\"/\\\\\\\\<\\\\\\\\K\\\\\\\\k*\\\\\\\\ze(/\\"
+      ],
+      \\"data\\": {
+        \\"pattern\\": \\"/\\\\\\\\<\\\\\\\\K\\\\\\\\k*\\\\\\\\ze(/\\"
+      }
+    },
+    {
+      \\"kind\\": \\"region\\",
+      \\"name\\": \\"madModuleGroup\\",
+      \\"raw\\": [
+        \\"contained\\",
+        \\"start=/{/\\",
+        \\"end=/}/\\",
+        \\"skipwhite\\",
+        \\"skipempty\\",
+        \\"matchgroup=madModuleBraces\\",
+        \\"contains=madModuleKeyword,madModuleComma,madModuleAs,madComment\\",
+        \\"nextgroup=madFrom\\",
+        \\"fold\\"
+      ],
+      \\"data\\": {
+        \\"contained\\": true,
+        \\"start\\": \\"/{/\\",
+        \\"end\\": \\"/}/\\",
+        \\"skipwhite\\": true,
+        \\"skipempty\\": true,
+        \\"matchgroup\\": \\"madModuleBraces\\",
+        \\"contains\\": [
+          \\"madModuleKeyword\\",
+          \\"madModuleComma\\",
+          \\"madModuleAs\\",
+          \\"madComment\\"
+        ],
+        \\"nextgroup\\": \\"madFrom\\",
+        \\"fold\\": true
+      }
+    },
+    {
+      \\"kind\\": \\"region\\",
+      \\"name\\": \\"madParens\\",
+      \\"raw\\": [
+        \\"matchgroup=madDelimiter\\",
+        \\"start=\\\\\\"(\\\\\\"\\",
+        \\"end=\\\\\\")\\\\\\"\\",
+        \\"contains=TOP,@madTypeSig,@Spell\\"
+      ],
+      \\"data\\": {
+        \\"matchgroup\\": \\"madDelimiter\\",
+        \\"start\\": \\"\\\\\\"(\\\\\\"\\",
+        \\"end\\": \\"\\\\\\")\\\\\\"\\",
+        \\"contains\\": [
+          \\"TOP\\",
+          \\"@madTypeSig\\",
+          \\"@Spell\\"
+        ]
+      }
+    },
+    {
+      \\"kind\\": \\"region\\",
+      \\"name\\": \\"madBrackets\\",
+      \\"raw\\": [
+        \\"matchgroup=madDelimiter\\",
+        \\"start=\\\\\\"\\\\\\\\[\\\\\\"\\",
+        \\"end=\\\\\\"]\\\\\\"\\",
+        \\"contains=TOP,@madTypeSig,@Spell\\"
+      ],
+      \\"data\\": {
+        \\"matchgroup\\": \\"madDelimiter\\",
+        \\"start\\": \\"\\\\\\"\\\\\\\\[\\\\\\"\\",
+        \\"end\\": \\"\\\\\\"]\\\\\\"\\",
+        \\"contains\\": [
+          \\"TOP\\",
+          \\"@madTypeSig\\",
+          \\"@Spell\\"
+        ]
+      }
+    },
+    {
+      \\"kind\\": \\"region\\",
+      \\"name\\": \\"madBlock\\",
+      \\"raw\\": [
+        \\"matchgroup=madDelimiter\\",
+        \\"start=\\\\\\"{\\\\\\"\\",
+        \\"end=\\\\\\"}\\\\\\"\\",
+        \\"contains=TOP,@Spell\\"
+      ],
+      \\"data\\": {
+        \\"matchgroup\\": \\"madDelimiter\\",
+        \\"start\\": \\"\\\\\\"{\\\\\\"\\",
+        \\"end\\": \\"\\\\\\"}\\\\\\"\\",
+        \\"contains\\": [
+          \\"TOP\\",
+          \\"@Spell\\"
+        ]
+      }
+    },
+    {
+      \\"kind\\": \\"region\\",
+      \\"name\\": \\"madFenceBounded\\",
+      \\"raw\\": [
+        \\"start='#-'\\",
+        \\"end='-#'\\"
+      ],
+      \\"data\\": {
+        \\"start\\": \\"'#-'\\",
+        \\"end\\": \\"'-#'\\"
+      }
+    },
+    {
+      \\"kind\\": \\"region\\",
+      \\"name\\": \\"madFenceUnbounded\\",
+      \\"raw\\": [
+        \\"start='^#-'\\",
+        \\"end='-#'\\"
+      ],
+      \\"data\\": {
+        \\"start\\": \\"'^#-'\\",
+        \\"end\\": \\"'-#'\\"
+      }
+    },
+    {
+      \\"kind\\": \\"match\\",
+      \\"name\\": \\"madIdentifier\\",
+      \\"raw\\": [
+        \\"\\\\\\"[_a-z][a-zA-z0-9_']*\\\\\\"\\",
+        \\"contained\\"
+      ],
+      \\"data\\": {
+        \\"\\\\\\"[_a-z][a-zA-z0-9_']*\\\\\\"\\": true,
+        \\"contained\\": true
+      },
+      \\"valid\\": true
+    },
+    {
+      \\"kind\\": \\"match\\",
+      \\"name\\": \\"madTypeSig\\",
+      \\"raw\\": [
+        \\"\\\\\\"^\\\\\\\\s*\\\\\\\\(where\\\\\\\\s\\\\\\\\+\\\\\\\\|let\\\\\\\\s\\\\\\\\+\\\\\\\\|default\\\\\\\\s\\\\\\\\+\\\\\\\\)\\\\\\\\?[_a-z][a-zA-Z0-9_']*#\\\\\\\\?\\\\\\\\(,\\\\\\\\s*[_a-z][a-zA-Z0-9_']*#\\\\\\\\?\\\\\\\\)*\\\\\\\\_s\\\\\\\\+::\\\\\\\\_s\\\\\\"\\",
+        \\"contains=madWhere,madIdentifier,madOperators,madSeparator,madParens\\"
+      ],
+      \\"data\\": {
+        \\"pattern\\": \\"\\\\\\"^\\\\\\\\s*\\\\\\\\(where\\\\\\\\s\\\\\\\\+\\\\\\\\|let\\\\\\\\s\\\\\\\\+\\\\\\\\|default\\\\\\\\s\\\\\\\\+\\\\\\\\)\\\\\\\\?[_a-z][a-zA-Z0-9_']*#\\\\\\\\?\\\\\\\\(,\\\\\\\\s*[_a-z][a-zA-Z0-9_']*#\\\\\\\\?\\\\\\\\)*\\\\\\\\_s\\\\\\\\+::\\\\\\\\_s\\\\\\"\\",
+        \\"contains\\": [
+          \\"madWhere\\",
+          \\"madIdentifier\\",
+          \\"madOperators\\",
+          \\"madSeparator\\",
+          \\"madParens\\"
+        ]
+      },
+      \\"valid\\": false,
+      \\"expected\\": {
+        \\"contains\\": [
+          \\"madWhere\\",
+          \\"madSeparator\\"
+        ],
+        \\"nextgroup\\": [],
+        \\"matchgroup\\": []
+      }
+    },
+    {
+      \\"kind\\": \\"match\\",
+      \\"name\\": \\"madOperators\\",
+      \\"raw\\": [
+        \\"\\\\\\"[-!#$%&\\\\\\\\*\\\\\\\\+/<=>\\\\\\\\?@\\\\\\\\\\\\\\\\^|~:.]\\\\\\\\+\\\\\\\\|\\\\\\\\<_\\\\\\\\>\\\\\\"\\"
+      ],
+      \\"data\\": {
+        \\"\\\\\\"[-!#$%&\\\\\\\\*\\\\\\\\+/<\\": \\">\\\\\\\\?@\\\\\\\\\\\\\\\\^|~:.]\\\\\\\\+\\\\\\\\|\\\\\\\\<_\\\\\\\\>\\\\\\"\\"
+      },
+      \\"valid\\": true
+    },
+    {
+      \\"kind\\": \\"keyword\\",
+      \\"name\\": \\"madData\\",
+      \\"raw\\": [
+        \\"data\\",
+        \\"nextgroup=madDataIdentifier\\"
+      ],
+      \\"data\\": {
+        \\"data\\": true,
+        \\"nextgroup\\": \\"madDataIdentifier\\"
+      },
+      \\"valid\\": true
+    },
+    {
+      \\"kind\\": \\"match\\",
+      \\"name\\": \\"madTypeVar\\",
+      \\"raw\\": [
+        \\"contained\\",
+        \\"/\\\\\\\\<\\\\\\\\K\\\\\\\\k\\\\\\\\+/\\",
+        \\"skipwhite\\"
+      ],
+      \\"data\\": {
+        \\"contained\\": true,
+        \\"pattern\\": \\"/\\\\\\\\<\\\\\\\\K\\\\\\\\k\\\\\\\\+/\\",
+        \\"skipwhite\\": true
+      },
+      \\"valid\\": true
+    },
+    {
+      \\"kind\\": \\"match\\",
+      \\"name\\": \\"madDataIdentifier\\",
+      \\"raw\\": [
+        \\"\\\\\\"\\\\\\\\<[A-Z][a-zA-Z0-9_']*\\\\\\\\>\\\\\\"\\",
+        \\"nextgroup=madTypeVar,madOperators,madParens\\"
+      ],
+      \\"data\\": {
+        \\"pattern\\": \\"\\\\\\"\\\\\\\\<[A-Z][a-zA-Z0-9_']*\\\\\\\\>\\\\\\"\\",
+        \\"nextgroup\\": [
+          \\"madTypeVar\\",
+          \\"madOperators\\",
+          \\"madParens\\"
+        ]
+      },
+      \\"valid\\": true
+    },
+    {
+      \\"kind\\": \\"keyword\\",
+      \\"name\\": \\"madFrom\\",
+      \\"raw\\": [
+        \\"contained\\",
+        \\"from\\",
+        \\"skipwhite\\",
+        \\"skipempty\\",
+        \\"nextgroup=madString\\"
+      ],
+      \\"data\\": {
+        \\"contained\\": true,
+        \\"from\\": true,
+        \\"skipwhite\\": true,
+        \\"skipempty\\": true,
+        \\"nextgroup\\": \\"madString\\"
+      },
+      \\"valid\\": true
+    },
+    {
+      \\"kind\\": \\"match\\",
+      \\"name\\": \\"madModuleComma\\",
+      \\"raw\\": [
+        \\"contained\\",
+        \\"/,/\\",
+        \\"skipwhite\\",
+        \\"skipempty\\",
+        \\"nextgroup=madModuleKeyword,madModuleAsterisk,madModuleGroup\\"
+      ],
+      \\"data\\": {
+        \\"contained\\": true,
+        \\"pattern\\": \\"/,/\\",
+        \\"skipwhite\\": true,
+        \\"skipempty\\": true,
+        \\"nextgroup\\": [
+          \\"madModuleKeyword\\",
+          \\"madModuleAsterisk\\",
+          \\"madModuleGroup\\"
+        ]
+      },
+      \\"valid\\": true
+    },
+    {
+      \\"kind\\": \\"match\\",
+      \\"name\\": \\"madModuleAsterisk\\",
+      \\"raw\\": [
+        \\"contained\\",
+        \\"/\\\\\\\\*/\\",
+        \\"skipwhite\\",
+        \\"skipempty\\",
+        \\"nextgroup=madModuleKeyword,madFrom\\"
+      ],
+      \\"data\\": {
+        \\"contained\\": true,
+        \\"pattern\\": \\"/\\\\\\\\*/\\",
+        \\"skipwhite\\": true,
+        \\"skipempty\\": true,
+        \\"nextgroup\\": [
+          \\"madModuleKeyword\\",
+          \\"madFrom\\"
+        ]
+      },
+      \\"valid\\": true
+    },
+    {
+      \\"kind\\": \\"match\\",
+      \\"name\\": \\"madModuleKeyword\\",
+      \\"raw\\": [
+        \\"contained\\",
+        \\"/\\\\\\\\<\\\\\\\\K\\\\\\\\k*/\\",
+        \\"skipwhite\\",
+        \\"skipempty\\",
+        \\"nextgroup=madFrom,madModuleComma\\"
+      ],
+      \\"data\\": {
+        \\"contained\\": true,
+        \\"pattern\\": \\"/\\\\\\\\<\\\\\\\\K\\\\\\\\k*/\\",
+        \\"skipwhite\\": true,
+        \\"skipempty\\": true,
+        \\"nextgroup\\": [
+          \\"madFrom\\",
+          \\"madModuleComma\\"
+        ]
+      },
+      \\"valid\\": true
+    },
+    {
+      \\"kind\\": \\"keyword\\",
+      \\"name\\": \\"madImport\\",
+      \\"raw\\": [
+        \\"import\\",
+        \\"skipwhite\\",
+        \\"skipempty\\",
+        \\"nextgroup=madModuleKeyword,madModuleGroup\\"
+      ],
+      \\"data\\": {
+        \\"import\\": true,
+        \\"skipwhite\\": true,
+        \\"skipempty\\": true,
+        \\"nextgroup\\": [
+          \\"madModuleKeyword\\",
+          \\"madModuleGroup\\"
+        ]
+      },
+      \\"valid\\": true
+    },
+    {
+      \\"kind\\": \\"match\\",
+      \\"name\\": \\"madComment\\",
+      \\"raw\\": [
+        \\"\\\\\\"\\\\\\\\v\\\\\\\\/\\\\\\\\/.*$\\\\\\"\\"
+      ],
+      \\"data\\": {
+        \\"pattern\\": \\"\\\\\\"\\\\\\\\v\\\\\\\\/\\\\\\\\/.*$\\\\\\"\\"
+      },
+      \\"valid\\": true
+    },
+    {
+      \\"kind\\": \\"region\\",
+      \\"name\\": \\"madString\\",
+      \\"raw\\": [
+        \\"start=/\\\\\\\\v\\\\\\"/\\",
+        \\"skip=/\\\\\\\\\\\\\\\\./\\",
+        \\"end=/\\\\\\\\v\\\\\\"/\\"
+      ],
+      \\"data\\": {
+        \\"start\\": \\"/\\\\\\\\v\\\\\\"/\\",
+        \\"skip\\": \\"/\\\\\\\\\\\\\\\\./\\",
+        \\"end\\": \\"/\\\\\\\\v\\\\\\"/\\"
+      },
+      \\"valid\\": true
+    },
+    {
+      \\"kind\\": \\"match\\",
+      \\"name\\": \\"madFunctionCall\\",
+      \\"raw\\": [
+        \\"/\\\\\\\\<\\\\\\\\K\\\\\\\\k*\\\\\\\\ze(/\\"
+      ],
+      \\"data\\": {
+        \\"pattern\\": \\"/\\\\\\\\<\\\\\\\\K\\\\\\\\k*\\\\\\\\ze(/\\"
+      },
+      \\"valid\\": true
+    },
+    {
+      \\"kind\\": \\"region\\",
+      \\"name\\": \\"madModuleGroup\\",
+      \\"raw\\": [
+        \\"contained\\",
+        \\"start=/{/\\",
+        \\"end=/}/\\",
+        \\"skipwhite\\",
+        \\"skipempty\\",
+        \\"matchgroup=madModuleBraces\\",
+        \\"contains=madModuleKeyword,madModuleComma,madModuleAs,madComment\\",
+        \\"nextgroup=madFrom\\",
+        \\"fold\\"
+      ],
+      \\"data\\": {
+        \\"contained\\": true,
+        \\"start\\": \\"/{/\\",
+        \\"end\\": \\"/}/\\",
+        \\"skipwhite\\": true,
+        \\"skipempty\\": true,
+        \\"matchgroup\\": \\"madModuleBraces\\",
+        \\"contains\\": [
+          \\"madModuleKeyword\\",
+          \\"madModuleComma\\",
+          \\"madModuleAs\\",
+          \\"madComment\\"
+        ],
+        \\"nextgroup\\": \\"madFrom\\",
+        \\"fold\\": true
+      },
+      \\"valid\\": false,
+      \\"expected\\": {
+        \\"contains\\": [
+          \\"madModuleAs\\"
+        ],
+        \\"nextgroup\\": [],
+        \\"matchgroup\\": []
+      }
+    },
+    {
+      \\"kind\\": \\"region\\",
+      \\"name\\": \\"madParens\\",
+      \\"raw\\": [
+        \\"matchgroup=madDelimiter\\",
+        \\"start=\\\\\\"(\\\\\\"\\",
+        \\"end=\\\\\\")\\\\\\"\\",
+        \\"contains=TOP,@madTypeSig,@Spell\\"
+      ],
+      \\"data\\": {
+        \\"matchgroup\\": \\"madDelimiter\\",
+        \\"start\\": \\"\\\\\\"(\\\\\\"\\",
+        \\"end\\": \\"\\\\\\")\\\\\\"\\",
+        \\"contains\\": [
+          \\"TOP\\",
+          \\"@madTypeSig\\",
+          \\"@Spell\\"
+        ]
+      },
+      \\"valid\\": true
+    },
+    {
+      \\"kind\\": \\"region\\",
+      \\"name\\": \\"madBrackets\\",
+      \\"raw\\": [
+        \\"matchgroup=madDelimiter\\",
+        \\"start=\\\\\\"\\\\\\\\[\\\\\\"\\",
+        \\"end=\\\\\\"]\\\\\\"\\",
+        \\"contains=TOP,@madTypeSig,@Spell\\"
+      ],
+      \\"data\\": {
+        \\"matchgroup\\": \\"madDelimiter\\",
+        \\"start\\": \\"\\\\\\"\\\\\\\\[\\\\\\"\\",
+        \\"end\\": \\"\\\\\\"]\\\\\\"\\",
+        \\"contains\\": [
+          \\"TOP\\",
+          \\"@madTypeSig\\",
+          \\"@Spell\\"
+        ]
+      },
+      \\"valid\\": true
+    },
+    {
+      \\"kind\\": \\"region\\",
+      \\"name\\": \\"madBlock\\",
+      \\"raw\\": [
+        \\"matchgroup=madDelimiter\\",
+        \\"start=\\\\\\"{\\\\\\"\\",
+        \\"end=\\\\\\"}\\\\\\"\\",
+        \\"contains=TOP,@Spell\\"
+      ],
+      \\"data\\": {
+        \\"matchgroup\\": \\"madDelimiter\\",
+        \\"start\\": \\"\\\\\\"{\\\\\\"\\",
+        \\"end\\": \\"\\\\\\"}\\\\\\"\\",
+        \\"contains\\": [
+          \\"TOP\\",
+          \\"@Spell\\"
+        ]
+      },
+      \\"valid\\": true
+    },
+    {
+      \\"kind\\": \\"region\\",
+      \\"name\\": \\"madFenceBounded\\",
+      \\"raw\\": [
+        \\"start='#-'\\",
+        \\"end='-#'\\"
+      ],
+      \\"data\\": {
+        \\"start\\": \\"'#-'\\",
+        \\"end\\": \\"'-#'\\"
+      },
+      \\"valid\\": true
+    },
+    {
+      \\"kind\\": \\"region\\",
+      \\"name\\": \\"madFenceUnbounded\\",
+      \\"raw\\": [
+        \\"start='^#-'\\",
+        \\"end='-#'\\"
+      ],
+      \\"data\\": {
+        \\"start\\": \\"'^#-'\\",
+        \\"end\\": \\"'-#'\\"
+      },
+      \\"valid\\": true
+    }
+  ]
+}"
+`;
